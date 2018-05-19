@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio of David Maillard — Freelance Web Designer</title>
+<style type="text/css">
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: sans-serif;
+        color: #142442;
+        overflow-x: hidden;
+    }
+
+    body.night {
+        background-color: #181e29;
+        color: #FFF;
+    }
+
+     ::selection {
+        background: #fff9bb;
+        /* WebKit/Blink Browsers */
+        color: #142442;
+    }
+
+     ::-moz-selection {
+        background: #fff9bb;
+        /* Gecko Browsers */
+        color: #142442;
+    }
+
+
+    .night ::selection {
+        background: #fff;
+        /* WebKit/Blink Browsers */
+        color: #000000;
+    }
+
+    .night ::-moz-selection {
+        background: #fff;
+        /* Gecko Browsers */
+        color: #000000;
+    }
+
+    h1 {
+
+        font-size: 50px;
+        letter-spacing: -2px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        cursor: default;
+    }
+
+    .m-0 {
+        margin: 0!important;
+    }
+
+
+    [contenteditable="true"].single-line br {
+        display: none;
+    }
+
+    [contenteditable="true"].single-line * {
+        display: inline;
+        white-space: nowrap;
+    }
+
+    h1 span {
+        cursor: initial;
+        outline: none;
+        position: relative;
+        transition: all 0.3s ease;
+        /*border-radius: 1em 0 1em 0;*/
+        /*background-image: linear-gradient(-100deg, rgb(255, 249, 187)), rgba(250,247,133,0.7) 95%, rgba(250,247,133,0.1));*/
+        /* background: rgb(255, 249, 187);*/
+    }
+    /* .night h1 span {
+        border-bottom: 2px solid #ffbc00;
+    }
+*/
+
+    .highlight {
+        background: rgb(255, 249, 187);
+        transition: all 0.3s ease;
+    }
+
+    .night .highlight {
+        background: rgb(55, 79, 105);
+        transition: all 0.3s ease;
+    }
+
+    .mark {
+        background: rgb(255, 249, 187);
+        color: #142442;
+    }
+
+    .night .mark {
+        background: rgb(55, 79, 105);
+        color: #ffffff;
+    }
+    /*    h1 span:before {
+        content: "";
+        position: absolute;
+            left: -10px;
+    right: -10px;
+    top: 0;
+    bottom: 0;
+            background-color: #fff9bb;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 90px;
+    z-index: -1;
+    }*/
+
+    a {
+        color: #00ceff;
+        text-decoration: none;
+        border-bottom: 1px solid #00ceff;
+        position: relative;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+        background-color: #00ceff;
+        color: #FFF;
+    }
+
+    a:hover:before,
+    a:focus:before,
+    a:active:before {
+        border: 5px solid #00ceff;
+        content: "";
+        position: absolute;
+        left: -5px;
+        right: -5px;
+        top: -5px;
+        bottom: -5px;
+    }
+
+    h2 {
+        font-size: 40px;
+        letter-spacing: -2px;
+        margin: 0;
+        text-align: center;
+        cursor: default;
+    }
+
+    .lead {
+        font-family: sans-serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin: 10px 0 0;
+        text-align: center;
+        color: #c8d4e2;
+        cursor: default;
+    }
+
+    .night .lead {
+        color: #515f6f;
+    }
+
+    p {
+        font-family: Cambria, Georgia, serif;
+        font-size: 26px;
+        line-height: 1.5;
+        color: #7c8ea2;
+    }
+
+    .home,
+    .about,
+    .works,
+    .contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .input_visitor {
+        font-size: 50px;
+        letter-spacing: -2px;
+        font-weight: bold;
+        color: #142442;
+        width: auto;
+    }
+
+    .highlight:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        right: 0;
+        top: -23px;
+        transform: translateX(-50%);
+        background: url('images/particle_animation.png') 0 0 no-repeat;
+        background-size: 2900%;
+        height: 100px;
+        width: 100px;
+        animation: heart-burst steps(28) .8s 1 both;
+    }
+
+    @keyframes heart-burst {
+        0% {
+            background-position: left;
+        }
+
+        100% {
+            background-position: right;
+        }
+    }
+
+    .work_list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .work_list li {
+        counter-increment: step-counter;
+        padding: 30px 0;
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        list-style: none;
+    }
+
+    .work_list li a {
+        display: inline;
+    }
+
+    .work_list li:before {
+        content: counter(step-counter);
+        position: absolute;
+        font-size: 80px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #edf4fd;
+        font-weight: bold;
+        padding: 3px 8px;
+        z-index: -1;
+    }
+
+    .night .work_list li:before {
+        color: #2f3b4a;
+    }
+
+    .work_list li:first-child:before,
+    ol li:nth-child(5):before {
+        left: 40%;
+    }
+
+    .work_list li:nth-child(3):before {
+        left: 60%;
+    }
+
+    .work_list li img {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 10;
+    }
+
+    .work_list li a:hover img {
+        display: block;
+    }
+    /*Scroll Cue*/
+
+    .scroll_me {
+        margin: 20px auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+
+    .scroll_me .dot {
+        width: 5px;
+        height: 5px;
+        background-color: #c8d4e2;
+        display: block;
+        margin: 5px;
+        border-radius: 50%;
+    }
+
+    .scroll_me .dot:first-child {
+        animation-name: bulletanim;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+
+    .scroll_me .dot:nth-child(2) {
+        animation-name: bulletanim;
+        animation-duration: 1s;
+        animation-delay: 0.1s;
+        animation-iteration-count: infinite;
+    }
+
+    .scroll_me .dot:last-child {
+        animation-name: bulletanim;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes bulletanim {
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    @media (max-width: 767px) {
+        .work_list li {
+            font-size: 24px;
+            line-height: 1.5;
+        }
+        p {
+            font-size: 20px;
+        }
+    }
+    </style>
+</head>
+<body>
+<div class="scroll_me">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+<div id="home" class="home">
+<h1>Hello <span contenteditable="true" class="single-line" autofocus id="editable" title="Enter your Name">there</span>, I'm David. </h1>
+<p class="lead"> A Freelance Web Designer from Brasil </p>
+</div>
+<div id="about" class="about">
+<h2><span class="visitor_name" data-comma="after"></span>Let's get acquainted</h2>
+<p>I help agencies &amp; businesses bring their products to life through effective design &amp; performant code.
+<br> I design and build websites with a focus on simplicity and a borderline obsessive attention to make digital marketing profitable for your business.</p>
+<p>I work at companies like <a href="https://www.freelancer.com/u/dmaillard" target="_blank">Freelancer.com</a> &amp; <a href="https://www.upwork.com/fl/davidmaillard" target="_blank">Upwork</a> where I helped several clients to succeed online.
+<br> I live in a beauitiful village in Minas Gerais, Brasil. </p>
+</div>
+
+<div id="works" class="works">
+<h2>Check out my Works<span class="visitor_name" data-comma="before"></span></h2>
+<div id="displayArea"></div>
+
+<ol class="work_list">
+<li><a href="https://www.behance.net/gallery/61667315/MMTUM-Inc" target="_blank" class="work_single">Molecular Gastronomy at Home - MMTUM Inc <img src="https://mir-s3-cdn-cf.behance.net/projects/202/8736a761667315.Y3JvcCw5NTMsNzQ2LDU4LDc1.png" alt="proland" /> </a> </li>
+<li><a href="https://www.behance.net/gallery/61893261/Porsche-Centre-Antwerpen" target="_blank" class="work_single">Porsche Centre Antwerpen — Porsche AG
+<img src="images/duotone.jpg" alt="proland" /> </a> </li>
+<li><a href="https://www.behance.net/gallery/61563591/FREDDYS-BIKE-TOURS" target="_blank" class="work_single">Melbourne's #1 rated bike tours - Freddys's Bike Tours
+<img src="images/unisco.jpg" alt="unisco" /> </a></li>
+<li><a href="https://www.behance.net/gallery/61846789/ML-Jordan-Commercial-Real-EstateMarketing-Solutions" target="_blank" class="work_single">Commercial Real Estate Marketing Solutions - ML Jordan
+<img src="images/offshore.jpg" alt="offshore" /> </a></li>
+<li><a href="https://www.behance.net/gallery/30021785/Downtown-Sacramento-Partnership" target="_blank" class="work_single">Downtown Sacramento Partnership - City of Sacramento
+<img src="images/mobland.jpg" alt="mobland" /> </a></li>
+</ol>
+<p><i>See more works on <a href="https://www.behance.net/dmaillard" target="_blank">Behance</a> </i></p>
+</div>
+<div id="contact" class="contact">
+<h2>Contact</h2>
+<p>Have a project for me <span class="visitor_name" data-comma="none"></span>? or just wanted to say Hi? Just send me an email 😊
+<br> There's no form to fill up, so you can use your favourite mail app.</p>
+<p><i class="mark"><span class="visitor_name" data-comma="after"></span>I'm available for new projects</i></p>
+<p>Email: <a href='mailto:david@dmaillard.com' target="_blank">david@dmaillard.com</a></p>
+<p class="m-0"><small> <a href="https://twitter.com/MaillardDavid" target="_blank">Twitter</a> &nbsp;&nbsp; &middot; &nbsp;&nbsp;
+<a href="http://linkedin.com/in/dmaillard" target="_blank">Linkedin</a> &nbsp;&nbsp; &middot; &nbsp;&nbsp;
+<a href="https://www.behance.net/dmaillard" target="_blank">Behance</a> </small></p>
+</div>
+<script type="text/javascript">
+    var homediv = document.getElementById("home");
+    var eSpan = document.getElementById("editable");
+    var visitor_name = document.getElementsByClassName("visitor_name");
+
+
+    var workdiv = document.getElementsByClassName("work_single")
+    //var hoverImg = document.getElementById('x');
+
+    for (var i = 0; i < workdiv.length; i++) {
+        workdiv[i].addEventListener('mousemove', getPos);
+
+    }
+
+
+    function getPos(e) {
+        var hoverImg = e.target.firstElementChild;
+        var rect = this.getBoundingClientRect();
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+        hoverImg.style.left = (x + 20) + 'px';
+        hoverImg.style.top = (y + 40) + 'px';
+
+    }
+
+
+    function nightMode() {
+        var d = new Date();
+        var n = d.getHours();
+        if (n >= 19 || n <= 6) {
+            document.body.className = "night";
+        }
+    }
+
+    nightMode();
+
+    function selectElementContents(el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+
+
+    eSpan.addEventListener("click", function(event) {
+        //selectElementContents(this);
+        if (this.innerText === 'there') {
+            this.innerText = '';
+        }
+    });
+
+    eSpan.addEventListener("blur", function(event) {
+        //selectElementContents(this);
+        var contentStored = localStorage.getItem('visitor');
+        if (contentStored) {
+            this.innerText = contentStored;
+        } else {
+            this.innerText = 'there';
+        }
+    });
+
+    window.onload = function() {
+
+        localStore.loadLocalStorage();
+        localStore.updateVistorName();
+
+        eSpan.focus();
+        // var temp_value = eSpan.innerHTML;
+        // eSpan.innerHTML = '';
+        // eSpan.innerHTML = temp_value;
+
+        var arr = new Array()
+        var start = 0;
+        var end = start + 1;
+        arr[0] = eSpan.innerText;
+        eSpan.innerText = '';
+
+        function write() {
+            setTimeout(function() {
+                eSpan.innerText = eSpan.innerText + arr[0].slice(start, end);
+                start++;
+                end = start + 1;
+                if (arr[0].slice(start, end) !== '') {
+                    write();
+                    setEndOfContenteditable(eSpan);
+                }
+                setEndOfContenteditable(eSpan);
+            }, 200);
+        }
+        write();
+        setEndOfContenteditable(eSpan);
+
+
+    };
+    // end on load
+
+
+    eSpan.addEventListener("keyup", function(event) {
+        localStore.saveLocalStorage();
+        if (event.which == 13 || event.keyCode == 13) {
+            eSpan.classList.add("highlight");
+            document.activeElement.blur();
+            setTimeout(function() {
+                eSpan.classList.remove("highlight");
+            }, 500);
+        }
+        localStore.updateVistorName();
+    });
+
+
+    var localStore = {
+        saveLocalStorage: function() {
+            localStorage.setItem('visitor', eSpan.innerText);
+        },
+        loadLocalStorage: function() {
+            var contentStored = localStorage.getItem('visitor');
+            if (contentStored) {
+                eSpan.innerText = contentStored;
+            }
+        },
+        updateVistorName: function() {
+            var contentStored = localStorage.getItem('visitor');
+            Array.prototype.forEach.call(visitor_name, function(element, index, array) {
+                var commapos = element.getAttribute("data-comma");
+                if (contentStored) {
+                    if (commapos === 'after') {
+                        element.innerText = contentStored + ', ';
+                    }
+
+                    if (commapos === 'before') {
+                        element.innerText = ', ' + contentStored;
+                    }
+
+                    if (commapos === 'none') {
+                        element.innerText = contentStored;
+                    }
+                }
+            });
+
+        }
+    }
+
+    function setEndOfContenteditable(contentEditableElement) {
+        var range, selection;
+        if (document.createRange) //Firefox, Chrome, Opera, Safari, IE 9+
+        {
+            range = document.createRange(); //Create a range (a range is a like the selection but invisible)
+            range.selectNodeContents(contentEditableElement); //Select the entire contents of the element with the range
+            range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+            selection = window.getSelection(); //get the selection object (allows you to change selection)
+            selection.removeAllRanges(); //remove any selections already made
+            selection.addRange(range); //make the range you have just created the visible selection
+        } else if (document.selection) //IE 8 and lower
+        {
+            range = document.body.createTextRange(); //Create a range (a range is a like the selection but invisible)
+            range.moveToElementText(contentEditableElement); //Select the entire contents of the element with the range
+            range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+            range.select(); //Select the range (make it the visible selection
+        }
+    }
+    </script>
+</body>
+</html>
